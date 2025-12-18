@@ -1,12 +1,15 @@
 <?php
 namespace ThankSong\Track123;
+use ThankSong\Track123\Request\InstantTrackRequest;
 use ThankSong\Track123\Request\Request;
 use ThankSong\Track123\Request\RegisterTrackingRequest;
 use ThankSong\Track123\Request\ChangeCarrierRequest;
+use ThankSong\Track123\Response\InstantTrackResponse;
 use ThankSong\Track123\Response\Response;
 use ThankSong\Track123\Response\GetTrackingsResponse;
 use ThankSong\Track123\Response\RegisterTrackingResponse;
 use ThankSong\Track123\Request\GetTrackingsRequest;
+use ThankSong\Track123\Request\DeleteTrackingsRequest;
 
 
 class Track123 {
@@ -55,5 +58,13 @@ class Track123 {
         $request = new Request();
         $request -> setEndpoint($endpoint)-> setMethod('GET');
         return $request -> send();
+    }
+
+    public static function deleteTrackings(array $trackings): Response {
+        return (new DeleteTrackingsRequest($trackings))->send();
+    }
+
+    public static function instantTrack(string $trackNo = null, string $courierCode = null, string $postalCode = null ): InstantTrackResponse{
+        return (new InstantTrackRequest($trackNo, $courierCode, $postalCode))->send();
     }
 }

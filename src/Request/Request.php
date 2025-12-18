@@ -7,7 +7,7 @@ class Request extends Client {
 
     }
 
-    public function send(){
+    public function send(): Response {
         return Response::from($this->sendRequest());
     }
 }

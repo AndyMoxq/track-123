@@ -5,6 +5,7 @@ namespace ThankSong\Track123\Request;
 use Illuminate\Support\Facades\Cache;
 use InvalidArgumentException;
 use ThankSong\Track123\Models\Courier;
+use ThankSong\Track123\Response\Response;
 
 class ChangeCarrierRequest extends Request 
 {
@@ -38,7 +39,7 @@ class ChangeCarrierRequest extends Request
         return $this;
     }
 
-    public function send() {
+    public function send(): Response {
         $this->validate();
         return parent::send();
     }
