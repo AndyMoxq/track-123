@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * created by VsCode
+ * User: Andy
+ * DateTime 2025-12-19 14:26:00
+ * Use to get the registed tracking info
+ */
 namespace ThankSong\Track123\Request;
 
 use InvalidArgumentException;
@@ -7,10 +12,22 @@ use ThankSong\Track123\Response\GetTrackingsResponse;
 use function in_array;
 
 class GetTrackingsRequest extends Request {
+    /**
+     * 路径断点常量
+     * @var string
+     */
     public const ENDPOINT = 'tk/v2.1/track/query';
 
-    protected $trackNos = [];
+    /**
+     * 跟踪号列表
+     * @var array
+     */
+    protected array $trackNos = [];
 
+    /**
+     * GetTrackingsRequest constructor
+     * @param array $trackNos
+     */
     public function __construct(array $trackNos = []){
         $this->setEndpoint(self::ENDPOINT);
         if(!empty($trackNos)){
@@ -99,11 +116,19 @@ class GetTrackingsRequest extends Request {
         return $this;
     }
 
+    /**
+     * 发送请求
+     * @return array
+     */
     public function send(): GetTrackingsResponse {
         $this->validate();
         return GetTrackingsResponse::from($this->sendRequest());
     }
 
+    /**
+     * 验证参数
+     * @return void
+     */
     public function validate(){
         $errors = [];
         $prams = $this->getParams();

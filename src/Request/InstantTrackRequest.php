@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by VsCode.
- * User: andy
+ * User: Andy
  * Date: 2025-12-18
  * Instant Tracking lets you create and get tracking results in one call.
  * Returns the latest shipment status immediately.
@@ -72,7 +72,7 @@ class InstantTrackRequest extends Request {
     
     /**
      * 发送请求
-     * @return array
+     * @return InstantTrackResponse
      */
     public function send(): InstantTrackResponse {
         $this->setParams($this->getTracking());

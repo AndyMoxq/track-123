@@ -1,4 +1,10 @@
 <?php
+/**
+ * created by VsCode
+ * User: Andy
+ * DateTime 2025-12-17 14:26:00
+ * Client of Track123 API
+ */
 namespace ThankSong\Track123\Request;
 
 use Illuminate\Support\Facades\Http;
@@ -6,11 +12,40 @@ use ThankSong\Track123\Exceptions\InvalidResponseException;
 use InvalidArgumentException;
 
 abstract class Client {
+    /**
+     * 请求参数
+     * @var array
+     */
     protected $params = [];
+
+    /**
+     * API URL
+     * @var string
+     */
     protected $api_url = 'https://api.track123.com/gateway/open-api/';
+
+    /**
+     * API Token
+     * @var string
+     */
     private $api_token = null;
+
+    /**
+     * 请求路径
+     * @var string
+     */
     protected $endpoint = null;
+
+    /**
+     * 请求方法
+     * @var string
+     */
     protected $method = 'POST';
+
+    /**
+     * 请求头
+     * @var array
+     */
     protected $headers = [
         'Content-Type' => 'application/json',
         'Accept' => 'application/json',
