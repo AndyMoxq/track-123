@@ -13,7 +13,7 @@ use function in_array;
 
 class GetTrackingsRequest extends Request {
     /**
-     * 路径断点常量
+     * 路径端点常量
      * @var string
      */
     public const ENDPOINT = 'tk/v2.1/track/query';

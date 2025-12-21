@@ -15,7 +15,7 @@ use ThankSong\Track123\Response\Response;
 class ChangeCarrierRequest extends Request 
 {
     /**
-     * 路径断点常量
+     * 路径端点常量
      * @var string
      */
     public const END_POINT = 'tk/v2.1/track/update-courier';
