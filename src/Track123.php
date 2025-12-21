@@ -12,7 +12,6 @@ use ThankSong\Track123\Response\RegisterTrackingResponse;
 use ThankSong\Track123\Request\GetTrackingsRequest;
 use ThankSong\Track123\Request\DeleteTrackingsRequest;
 
-
 class Track123 {
     /**
      * 注册单号
