@@ -184,7 +184,7 @@ abstract class Client {
         $this->validate();
         $res = $method=='GET'? Http::withHeaders($headers)->get($url, $params) : Http::withHeaders($headers)->post($url, $params);
         if($res->status() != 200){
-            throw new InvalidResponseException('Invalid response from server' . $res->status());
+            throw new InvalidResponseException('Invalid response from server ' . $res->status() . ',error message:' . ($res->json('msg') ?? '未知错误'));
         }
         return $res->json();
     }

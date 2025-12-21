@@ -44,10 +44,20 @@ class EditTrackingRequest extends Request {
     }
 
     /**
+     * 获取跟踪信息
+     * @return array
+     */
+    public function getTracking(): array {
+        return $this->tracking;
+    }
+
+    /**
      * 发送请求
      * @return Response
      */
     public function send(): Response {
+        $this->setParams($this->getTracking());
+        $this->validate();
         return parent::send();
     }
 
